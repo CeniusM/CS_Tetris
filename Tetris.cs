@@ -2,9 +2,12 @@ namespace CS_Tetris
 {
     class Tetris
     {
+        private string GameName = "";
+        private int Points = 0;
         private const int Amout_Of_Pieces_On_Side = 3;
         private float GameSpeed = 10000;
-        private string GameName = "";
+        // lav en second thread 
+        //som der lige så stille holder øje med scoren mens den sætte dette op, husk og lav en minimum
         private List<string> Player_Move = new List<string>();
         // list[0] is used to tell if the player input thread is suppose to run
         // I will run 2 threads, one where the gamelogic is running and another one
@@ -21,20 +24,24 @@ namespace CS_Tetris
         {
             GameName = AGameName;
             GUI = new GUI(GameName, x_OffSet, y_OffSet, Board, CordUpdateList);
-            for (int i = 0; i < x; i++)
+            for (int i = 0; i < y; i++)
             {
                 List<int> Line = new List<int>();
-                for (int j = 0; j < y; j++)
+                for (int j = 0; j < x; j++)
                 {
                     Line.Add(0);
                 }
                 Board.Add(Line);
             }
-
         }
         public void Start()
         {
+            SetUp();
+
+            Play();
             
+            //test
+            GUI.PrintBoard();
         }
         private void Play()
         {
