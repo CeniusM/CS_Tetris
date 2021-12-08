@@ -17,12 +17,29 @@ namespace CS_Tetris
         public void PrintBoard()
         {
             Console.SetBufferSize(CordOffSet[0], CordOffSet[1]);
-            for (int i = 0; i < Board.Count(); i++)
+            for (int i = -1; i < Board.Count()+1; i++)
             {
-                for (int j = 0; j < Board[0].Count(); j++)
+                for (int j = -1; j < Board[0].Count()+1; j++)
                 {
-                    
+                    PrintField(i,j);
                 }
+            }
+        }
+        public void PrintField(int i, int j)
+        {
+            if (i == -1 || j == -1)
+            {
+                ColoredWriter.Write(ConsoleColor.Gray, "[]");
+                return;
+            }
+            else if (i == Board.Count() || j == Board[0].Count())
+            {
+                ColoredWriter.Write(ConsoleColor.Gray, "[]");
+                return;
+            }
+            else if (Board[i][j] == 0)
+            {
+                
             }
         }
         public void PrintUpdates()

@@ -3,13 +3,13 @@ namespace CS_Tetris
     class Player_Input_Module
     {
         string GameName = "";
-        List<string> Player_Move = new List<string>(); // list[0] is used to tell if this thread is supose to run
-        // i will run 2 threads, one where the gamelogic is running and anotsher one
-        // where the player can make wasd/c inputs, and the inputs get send through this list refrence
+        List<string> Player_Move = new List<string>(); // list[0] is used to tell if this thread is suppose to run
+        // I will run 2 threads, one where the gamelogic is running and another one
+        // where the player can make wasd/c inputs, and the inputs get send through this list reference
         // this class is used for the player movment
-        public Player_Input_Module(string AGameName, List<string> APlayer_MoveRefrence)
+        public Player_Input_Module(string AGameName, List<string> APlayer_MoveReference)
         {
-            Player_Move = APlayer_MoveRefrence;
+            Player_Move = APlayer_MoveReference;
             GameName = AGameName;
         }
         private void Logic()

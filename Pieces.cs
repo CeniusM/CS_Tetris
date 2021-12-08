@@ -2,13 +2,13 @@ namespace CS_Tetris
 {
     class Piece
     {
-        private int Piece_Type;
+        public int Piece_Type { get; private set; }
         private List<int[]> Piece_Cords = new List<int[]>();
         public Piece(int APiece_Type)
         {
             Piece_Type = APiece_Type;
         }
-        public ConsoleColor GetPeiceColor()
+        public ConsoleColor GetPieceColor()
         {
             switch (Piece_Type)
             {
@@ -29,16 +29,20 @@ namespace CS_Tetris
                 case 0:
                     return ConsoleColor.Gray;
             }
-            throw new ArgumentException("the peice value must be a number between 0 and 7");
+            throw new ArgumentException("the piece value must be a number between 0 and 7");
+        }
+        public void SetPieceType(int value)
+        {
+            Piece_Type = value;
         }
     }
 }
 
 /*
 
-The peice types and colors and so on
+The piece types and colors and so on
 
-0 = "" = none
+0 = "" = Gray/None
 
 1 = L = DarkBlue
 []
@@ -49,7 +53,7 @@ The peice types and colors and so on
   [][]
 [][]
 
-3 = J = Orenge
+3 = J = Orange
   []
   []
 [][]
@@ -68,7 +72,7 @@ The peice types and colors and so on
 [][]
 [][]
 
-7 = T = purple
+7 = T = Purple
   []
 [][][]
 

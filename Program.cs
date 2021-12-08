@@ -17,6 +17,6 @@ ToDoList:
 
 -Make it so you can save the game replay
 -Make it so 2 players can play at once
--Make the saving one piece thingy
+-Make it so you can save a piece to use later
 
 */
