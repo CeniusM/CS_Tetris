@@ -16,6 +16,17 @@ namespace CS_Tetris
         }
         public void PrintBoard()
         {
+            Console.SetBufferSize(CordOffSet[0], CordOffSet[1]);
+            for (int i = 0; i < Board.Count(); i++)
+            {
+                for (int j = 0; j < Board[0].Count(); j++)
+                {
+                    
+                }
+            }
+        }
+        public void PrintUpdates()
+        {
 
         }
     }

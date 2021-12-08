@@ -10,6 +10,7 @@ namespace CS_Tetris
         private List<List<int>> Board = new List<List<int>>();
         private GUI GUI;
         private List<int[]> CordUpdateList = new List<int[]>();
+        private Piece Piece = new Piece(0);
         public Tetris(string AGameName, int x, int y, int x_OffSet, int y_OffSet)
         {
             GameName = AGameName;
@@ -26,7 +27,7 @@ namespace CS_Tetris
         }
         public void Start()
         {
-
+            
         }
         private void Play()
         {
