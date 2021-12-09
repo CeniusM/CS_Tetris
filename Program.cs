@@ -4,7 +4,7 @@
     {
         public static void Main()
         {
-            Tetris Tetris_Game = new Tetris("AGame", 10, 20, 0, 0);
+            Tetris Tetris_Game = new Tetris("AGame", 10, 20, 0, 0, 3);
 
             Tetris_Game.Start();
 
