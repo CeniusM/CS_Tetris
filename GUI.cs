@@ -27,22 +27,18 @@ namespace CS_Tetris
                 }
             }
         }
-        public void PrintField(int i, int j) // this is supose to print the relevant value for any given field
+        private void PrintField(int i, int j) // this is supose to print the relevant value for any given field
         {
             // examples "[|]", "[*]", "[-]", "[O]"
             if (i == -1 || j == -1 || i == Board.Count() || j == Board[0].Count()) // Prints the boarders
             {
-                ColoredWriter.Write(ConsoleColor.DarkRed, "[-]");
+                ColoredWriter.Write(ConsoleColor.DarkRed, "[=]");
                 return;
             }
-            else if (Board[i][j] == 0) // prints the background
+            else // prints the background
             {
                 // for now, but later print in compareson to the color
-                ColoredWriter.Write(ConsoleColor.Gray, "[-]");
-            }
-            else // prints the fields with any piece / block
-            {
-
+                ColoredWriter.Write(GetFeildColor(i, j), "[O]");
             }
         }
         public void PrintUpdates() // only prints the cords from the update list
@@ -55,6 +51,35 @@ namespace CS_Tetris
                 Console.SetCursorPosition(Cord0, Cords[1]);
                 PrintField(Cords[0], Cords[1]);
             }
+        }
+        public void SetUpConsole()
+        {
+            Console.WindowHeight = Console.LargestWindowHeight;
+            Console.WindowWidth = Console.LargestWindowWidth;
+            Console.SetWindowPosition(0, 0);
+        }
+        public ConsoleColor GetFeildColor(int i, int j)
+        {
+            switch (Board[i][j])
+            {
+                case 1:
+                    return ConsoleColor.DarkBlue;
+                case 2:
+                    return ConsoleColor.Green;
+                case 3:
+                    return ConsoleColor.DarkYellow;
+                case 4:
+                    return ConsoleColor.Blue;
+                case 5:
+                    return ConsoleColor.Red;
+                case 6:
+                    return ConsoleColor.Yellow;
+                case 7:
+                    return ConsoleColor.Magenta;
+                case 0:
+                    return ConsoleColor.Gray;
+            }
+            throw new ArgumentException("the piece value must be a number between 0 and 7");
         }
     }
 }
