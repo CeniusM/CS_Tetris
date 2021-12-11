@@ -67,6 +67,7 @@ namespace CS_Tetris
             GUI.SetUpConsole();
 
             //test
+            Board[Board.Count / 2][ Board[1].Count / 2] = 1;
             NextPiece.New();
             Piece.Down();
             Piece.Down();
@@ -99,21 +100,5 @@ namespace CS_Tetris
                 }
             }
         }
-        private void GameTick()
-        {
-
-        }
-
-        private void TickSpeed(int Ms) // only update the stuff that needs to be updated each second
-        {
-            while (true) // while game is running
-            {
-                for (int i = 0; i < Tick.Count(); i++)
-                    Tick[i]++;
-                Tick_Count++;
-                GameTick();
-                Thread.Sleep(Ms);
-            }
-        } // also have 2 difrent ticks for player move and game move
     }
 }

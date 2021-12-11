@@ -20,7 +20,7 @@ namespace CS_Tetris
         {
             for (int i = -1; i <= Board.Count(); i++)
             {
-                Console.SetCursorPosition(CordOffSet[0], CordOffSet[1] + i + 1);
+                try {Console.SetCursorPosition(CordOffSet[0], CordOffSet[1] + i + 1);}catch{}
                 for (int j = -1; j <= Board[0].Count(); j++)
                 {
                     PrintField(i, j);
@@ -54,9 +54,13 @@ namespace CS_Tetris
         }
         public void SetUpConsole()
         {
-            Console.WindowHeight = Console.LargestWindowHeight;
-            Console.WindowWidth = Console.LargestWindowWidth;
-            Console.SetWindowPosition(0, 0);
+            try
+            {
+                Console.WindowHeight = Console.LargestWindowHeight;
+                Console.WindowWidth = Console.LargestWindowWidth;
+                Console.SetWindowPosition(0, 0);
+            }
+            catch { }
         }
         public ConsoleColor GetFeildColor(int i, int j)
         {

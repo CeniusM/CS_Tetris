@@ -20,24 +20,36 @@ namespace CS_Tetris
         {
             Piece_Type = value;
         }
-        public void Down() // this is ment to set the piece on lower every time its called
+        public void Down() // this is ment to set the piece on lower every time it's called
         {
             bool MoveDown = true;
-            for (int i = 0; i < Piece_Cords.Count; i++)
-            {
-                if (Board[Piece_Cords[i][0]][Piece_Cords[i][1]] != 0)
-                {
-                    MoveDown = false;
-                    break;
-                }
-            }
+            // for (int i = 0; i < Piece_Cords.Count; i++)
+            // {
+            //     for (int j = 0; j < Piece_Cords.Count; j++)
+            //     {
+            //         if (Board[Piece_Cords[i][0] + 1] != null)
+            //         {
+            //             if (Piece_Cords[i][0] + 1 == Piece_Cords[j][0] && Piece_Cords[i][1] == Piece_Cords[j][1]) continue; // checks a cord down and on same x axes
+            //             else if (Board[Piece_Cords[i][0] + 1][Piece_Cords[i][1]] != 0) MoveDown = false;
+            //         }
+            //     }
+            // }
             if (MoveDown == true)
             {
-                
+                for (int i = 0; i < Piece_Cords.Count; i++)
+                {
+                     Board[Piece_Cords[i][0]][Piece_Cords[i][1]] = 0;
+                    Piece_Cords[i][0]++;
+                    Board[Piece_Cords[i][0]][Piece_Cords[i][1]] = Piece_Type;
+                }
             }
             else StopPiece();
+            // Board[Piece_Cords[0][0]][Piece_Cords[0][1] + 10] = 7;
+            // Board[Piece_Cords[0][0]][Piece_Cords[0][1]] = 0;
+            // Piece_Cords[0][1]++;
+            // Board[Piece_Cords[0][0]][Piece_Cords[0][1]] = Piece_Type;
         }
-        public void StopPiece() // the method that make the peice stop and make a new one
+        public void StopPiece() // the method that make the piece stop and make a new one
         {
 
         }

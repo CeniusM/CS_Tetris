@@ -25,10 +25,17 @@ namespace CS_Tetris
         }
         public void New()
         {
-            Piece = new Piece(List_Of_Pieces[0], GUI, Board);
+            // Piece = new Piece(List_Of_Pieces[0], GUI, Board);
             List_Of_Pieces.RemoveAt(0);
             List_Of_Pieces.Add(GetRandomPieceType());
             List<int[]> ListOfCords = GetPieceCords(List_Of_Pieces[0]);
+            Piece.Piece_Cords = new List<int[]>();
+            for (int i = 0; i < ListOfCords.Count; i++)
+            {
+                Piece.Piece_Cords.Add(new int[2]);
+                Piece.Piece_Cords[i][0] = ListOfCords[i][0] + (Board[0].Count / 2);
+                Piece.Piece_Cords[i][1] = ListOfCords[i][1];
+            }
             foreach (int[] Cords in ListOfCords)
             {
                 Board[Cords[0]][Cords[1] + (Board[0].Count / 2 - 1)] = List_Of_Pieces[0];
