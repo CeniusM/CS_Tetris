@@ -1,10 +1,10 @@
-﻿namespace CS_Tetris
+﻿namespace CS_Tetris // this is my attempt at a tetris that follows the standerd tetris
 {
     class Program
     {
         public static void Main()
         {
-            Tetris Tetris_Game = new Tetris("AGame", 10, 20, 0, 0, 3);
+            Tetris Tetris_Game = new Tetris();
 
             Tetris_Game.Start();
 
